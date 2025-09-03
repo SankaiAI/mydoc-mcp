@@ -1,0 +1,85 @@
+# mydocs-mcp .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Data directories (local user data)
+data/documents/
+data/indexes/
+data/cache/
+data/backups/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# Configuration with secrets
+config/production.yaml
+config/secrets.yaml
+.env.production
+
+# Test outputs
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# MCP specific
+mcp_server.log
+*.mcp.log
