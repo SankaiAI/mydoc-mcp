@@ -243,6 +243,97 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 
 ---
 
+## 🌟 **mydocs-mcp vs GitHub MCP: Why Both Matter**
+
+### **"Why not just use GitHub MCP to access my historical repos?"**
+
+**Excellent question!** GitHub MCP is incredibly powerful for repository-based work, but mydocs-mcp serves a different, complementary purpose:
+
+### **GitHub MCP Strengths**
+- ✅ **Repository management**: Code discovery across multiple repos
+- ✅ **Version control integration**: Git history, commits, branches
+- ✅ **Code-centric search**: Find functions, classes, implementation patterns
+- ✅ **Project structure navigation**: Repository organization and relationships
+
+### **mydocs-mcp Unique Value**
+- ✅ **Document quality intelligence**: Learns which documents were most successful
+- ✅ **Writing pattern recognition**: Adapts to your personal documentation style
+- ✅ **Performance-optimized**: Sub-200ms document retrieval (no API limits)
+- ✅ **Privacy-first**: 100% local, works with any documents (non-Git files included)
+
+### **Real-World Comparison**
+
+#### **Scenario: "Create a technical specification like my best ones"**
+
+**GitHub MCP Approach:**
+```
+1. Search across multiple repos for "technical specification"
+2. Find 15+ spec files across different projects  
+3. Manual review to identify the best examples
+4. Time: 8-12 minutes + quality assessment
+```
+
+**mydocs-mcp Approach:**
+```
+1. Instantly surface top 3 technical specifications based on:
+   - Document reuse frequency and success patterns
+   - Cross-reference success (docs that led to successful projects)
+   - Your personal writing evolution and improvements
+2. Time: 2-3 minutes with pre-filtered quality ranking
+```
+
+### **Different Problem Domains**
+
+| **Focus Area** | **GitHub MCP** | **mydocs-mcp** | **Best Use Case** |
+|---|---|---|---|
+| **Primary Purpose** | Repository & code discovery | Document quality intelligence | Code structure vs writing patterns |
+| **Search Target** | "What code patterns exist?" | "What documentation works best for me?" | Different questions entirely |
+| **Intelligence Type** | Repository structure awareness | Personal writing pattern learning | Complementary strengths |
+| **Performance** | Network/API dependent | Local, sub-200ms guaranteed | Speed vs breadth trade-off |
+| **Scope** | Git repositories only | Any documents anywhere | Repository vs filesystem |
+
+### **Why Use Both Together**
+
+**Optimal Workflow:**
+1. **GitHub MCP**: Discover code patterns and project structure across repositories
+2. **mydocs-mcp**: Generate documentation templates based on your proven successful approaches
+3. **Result**: Code structure insights + personalized documentation patterns = faster, better outcomes
+
+**Example Combined Usage:**
+```
+User: "Create API documentation for this new service"
+
+Claude Code Workflow:
+1. GitHub MCP → Find similar API implementations across your repos
+2. mydocs-mcp → Retrieve your most successful API documentation templates  
+3. Generate → New API docs using proven code patterns + your best writing style
+```
+
+### **When to Choose Which**
+
+**Use GitHub MCP when:**
+- Discovering code implementations across projects
+- Understanding repository relationships and history
+- Finding specific functions or technical implementations
+- Working within Git-based workflows
+
+**Use mydocs-mcp when:**
+- Creating documentation that matches your successful patterns
+- Learning from your personal document evolution  
+- Optimizing for document retrieval speed and quality
+- Working with documents outside of Git repositories
+
+**Use Both when:**
+- Building comprehensive project documentation
+- Maintaining consistency across code and documentation
+- Leveraging both technical and writing pattern intelligence
+
+### **Key Insight: Complementary, Not Competitive**
+
+mydocs-mcp doesn't replace GitHub MCP - it **enhances your documentation workflow** while GitHub MCP enhances your code discovery workflow. Together, they provide comprehensive historical intelligence for both your technical implementations and your documentation patterns.
+
+---
+
 ## 🛠️ **Usage**
 
 ### **Basic Commands**
