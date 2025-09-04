@@ -9,6 +9,346 @@
 
 ---
 
+## 🛡️ **MANDATORY USER REQUEST VALIDATION PROCESS**
+
+### **CRITICAL: ALL User Requests Must Be Analyzed FIRST**
+
+**BEFORE implementing ANY user request, Claude Code MUST:**
+
+1. **IMMEDIATELY call project-coordinator agent to analyze the request**
+   - Even if the request seems straightforward
+   - Even if the user insists on immediate implementation
+   - Even if it appears to be a minor change
+   - NO EXCEPTIONS to this rule
+
+2. **Provide project-coordinator with:**
+   - The exact user request (verbatim)
+   - Current project context and status
+   - Technical implications of the request
+   - Potential conflicts with best practices
+   - Impact on scope, timeline, or architecture
+
+3. **Wait for project-coordinator's analysis which will:**
+   - ✅ Validate if request aligns with project goals
+   - ❌ Identify conflicts with best practices
+   - ⚠️ Highlight potential risks or issues
+   - 🔄 Suggest alternative approaches if needed
+   - 📋 Determine proper implementation path
+
+4. **Based on project-coordinator's response:**
+   - **If APPROVED**: Proceed with implementation
+   - **If CONCERNS RAISED**: Discuss with user before proceeding
+   - **If REJECTED**: Explain why and offer alternatives
+   - **If UNCLEAR**: Ask user for clarification
+
+### **Examples of MANDATORY project-coordinator validation:**
+
+```
+USER: "Let's put the test file in the root directory"
+CLAUDE CODE ACTION: 
+1. Call project-coordinator to analyze test file location request
+2. Project-coordinator identifies this violates project structure best practices
+3. Respond to user with recommended tests/ folder location
+4. Only proceed after alignment
+
+USER: "Skip the database and just use JSON files"
+CLAUDE CODE ACTION:
+1. Call project-coordinator to analyze storage approach change
+2. Project-coordinator evaluates performance and scalability impact
+3. Present trade-offs to user
+4. Implement only after informed decision
+
+USER: "Just quickly add this feature"
+CLAUDE CODE ACTION:
+1. Call project-coordinator to analyze feature addition
+2. Project-coordinator checks scope boundaries
+3. Determine if feature is IN SCOPE or OUT OF SCOPE
+4. Proceed only if validated or approved
+```
+
+### **NO BLIND AGREEMENT Policy:**
+- ❌ NEVER automatically agree with user suggestions
+- ❌ NEVER skip validation to save time
+- ❌ NEVER assume user's approach is optimal
+- ✅ ALWAYS validate through project-coordinator
+- ✅ ALWAYS provide technical assessment
+- ✅ ALWAYS protect project integrity
+
+---
+
+## 🔍 **CLAUDE CODE PRE-TASK DOCUMENT REVIEW PROTOCOL**
+
+### **CRITICAL: Mandatory Document Review Before Each Development Task**
+
+**ALL development tasks performed by Claude Code MUST begin with this mandatory document review protocol. This ensures governance consistency with subagent requirements and prevents architectural drift, performance violations, and integration conflicts.**
+
+**NO EXCEPTIONS**: This requirement applies to ALL development tasks without exception.
+
+---
+
+### **MANDATORY LIGHT PROTOCOL (15-30 seconds per task)**
+
+**BEFORE starting ANY development task, Claude Code MUST:**
+
+#### **📋 Core Document Quick Scan (MANDATORY)**:
+1. **✅ DEVELOPMENT_STATUS.md** - Current context, task priorities, session continuity
+   - Check "Current Development Context" for immediate priorities
+   - Verify "Immediate Next Steps" align with planned work
+   - Review "Last Completed" to understand current state
+   - Check for any blockers or issues from previous work
+
+2. **✅ TECHNICAL_ARCHITECTURE.md** - Technical approach and architectural constraints
+   - Review relevant sections for component being modified
+   - Check performance requirements (sub-200ms targets)
+   - Verify architectural decisions and design patterns
+   - Confirm integration specifications and interfaces
+
+3. **✅ PROJECT_STRUCTURE.md** - Code structure and file organization (when modifying/adding files)
+   - Verify file placement follows established structure
+   - Check naming conventions and organization patterns
+   - Confirm component relationships and dependencies
+   - Validate module hierarchy and interfaces
+
+4. **✅ SYSTEM_DESIGN_REQUIREMENTS.md** - Design decisions and performance specifications
+   - Check relevant design constraints for current task
+   - Verify performance targets and quality requirements
+   - Review system integration requirements
+   - Confirm compliance with architectural specifications
+
+#### **⚡ Quick Validation Checklist (MANDATORY)**:
+Before proceeding with development task:
+- [ ] **Current Context Verified** - Understand where project stands and what needs to be done next
+- [ ] **Technical Approach Confirmed** - Implementation aligns with architectural decisions
+- [ ] **Performance Targets Known** - Sub-200ms requirements and quality metrics understood
+- [ ] **Integration Constraints Checked** - Component interfaces and dependencies verified
+- [ ] **Scope Compliance Verified** - Task aligns with IN SCOPE items and project boundaries
+
+---
+
+### **PROTOCOL ENFORCEMENT**
+
+#### **MANDATORY COMPLIANCE REQUIREMENTS**:
+1. **Every Task Must Begin** with this document review protocol
+2. **No Development Without Review** - Cannot start coding/implementation without completing protocol
+3. **Document Current Understanding** - Reference relevant constraints and requirements during work
+4. **Verify Alignment Continuously** - Check architectural compliance during implementation
+5. **Update Context After Completion** - Ensure DEVELOPMENT_STATUS.md reflects current state
+
+#### **COMPLIANCE VERIFICATION CHECKLIST**:
+- [ ] **Protocol Completed** - All mandatory documents reviewed before starting work
+- [ ] **Context Understood** - Current project state and priorities clear
+- [ ] **Constraints Known** - Technical and architectural limitations understood
+- [ ] **Performance Aware** - Sub-200ms targets and quality requirements confirmed
+- [ ] **Scope Verified** - Task aligns with project boundaries and deliverables
+
+#### **ESCALATION FOR NON-COMPLIANCE**:
+```
+IF Claude Code skips mandatory document review protocol:
+1. STOP current work immediately
+2. Complete mandatory document review protocol
+3. Verify alignment with architectural requirements
+4. Document any conflicts or issues discovered
+5. If conflicts found, reassess approach before proceeding
+```
+
+---
+
+### **PROTOCOL RATIONALE**
+
+#### **Why This Protocol is Critical**:
+1. **Prevents Architecture Drift** - Ensures decisions align with established technical architecture
+2. **Maintains Performance Targets** - Confirms sub-200ms requirements are met consistently
+3. **Ensures Scope Compliance** - Verifies work stays within project boundaries
+4. **Reduces Rework** - Catches integration conflicts before they become expensive fixes
+5. **Maintains Quality** - Ensures consistent standards across all development work
+
+#### **Time Investment vs. Value**:
+- **Time Cost**: 15-30 seconds per task
+- **Time Saved**: Hours of potential rework from architectural conflicts
+- **Quality Impact**: Significant improvement in consistency and integration quality
+- **Risk Reduction**: Prevents critical path delays from integration issues
+
+#### **Consistency with Subagent Requirements**:
+This protocol ensures Claude Code follows the same governance standards it requires from all subagents, maintaining consistency across the entire development process.
+
+---
+
+### **SPECIALIZED PROTOCOL EXTENSIONS**
+
+#### **For Complex Architecture Tasks**:
+```
+ADDITIONAL REQUIREMENTS for tasks affecting system architecture:
+1. Review SYSTEM_DESIGN_REQUIREMENTS.md in detail (not just quick scan)
+2. Check component interaction specifications
+3. Verify performance impact assessment
+4. Confirm integration testing requirements
+5. Update architectural documentation if needed
+```
+
+#### **For Database/Storage Tasks**:
+```
+ADDITIONAL REQUIREMENTS for database and storage tasks:
+1. Review schema specifications and performance requirements
+2. Check data model constraints and relationships
+3. Verify query performance targets (sub-200ms)
+4. Confirm backup and migration requirements
+5. Validate data integrity specifications
+```
+
+#### **For MCP Protocol Tasks**:
+```
+ADDITIONAL REQUIREMENTS for MCP protocol tasks:
+1. Review MCP protocol compliance specifications
+2. Check tool interface requirements and validation rules
+3. Verify transport layer constraints (stdio only)
+4. Confirm error handling and response formatting
+5. Validate protocol version compatibility
+```
+
+---
+
+### **PROTOCOL SUCCESS METRICS**
+
+#### **Compliance Indicators**:
+- ✅ **Zero architectural conflicts** during development
+- ✅ **Performance targets maintained** - all operations sub-200ms
+- ✅ **Scope violations prevented** - no OUT OF SCOPE feature implementation
+- ✅ **Integration issues minimized** - clean component interfaces maintained
+- ✅ **Rework cycles eliminated** - fewer architectural corrections needed
+
+#### **Quality Improvements**:
+- **Architectural Consistency** - Decisions align with established patterns
+- **Performance Predictability** - Requirements met consistently across components
+- **Integration Reliability** - Components work together without interface conflicts
+- **Documentation Accuracy** - Implementation matches documented architecture
+- **Timeline Protection** - Rework prevention keeps project on schedule
+
+---
+
+**CRITICAL SUCCESS FACTOR**: This Claude Code pre-task document review protocol is ESSENTIAL for maintaining architectural consistency, preventing performance violations, and ensuring successful delivery within the mydocs-mcp 3-day development sprint. ALL development tasks MUST follow this protocol without exception.
+
+---
+
+## 📝 **MANDATORY project-documentor USAGE RULES**
+
+### **CRITICAL: Claude Code MUST call project-documentor for ANY documentation governance changes**
+
+**BEFORE making changes to these document types, Claude Code MUST call project-documentor:**
+
+#### **🔒 GOVERNANCE DOCUMENTS (ALWAYS use project-documentor):**
+1. **CLAUDE.md** - This governance document itself
+2. **PROJECT_SCOPE_3DAY.md** - Project contract and scope boundaries
+3. **CHANGES_INDEX.md** - Change management system
+4. **DEVELOPMENT_STATUS.md** - Development progress tracking
+5. **Any file in docs/project-management/** - Project management processes
+6. **Any file in docs/templates/** - Documentation templates and standards
+
+#### **📋 PROCESS DOCUMENTS (ALWAYS use project-documentor):**
+1. **Agent usage guidelines** - Rules for calling specialized agents
+2. **Workflow documentation** - Development and documentation processes  
+3. **Change management processes** - How to document and track changes
+4. **Quality assurance processes** - Testing and validation procedures
+5. **Project coordination processes** - Team and stakeholder communication
+
+### **project-documentor Usage Protocol:**
+
+```
+WHEN making ANY change to governance/process documents:
+1. STOP implementation immediately  
+2. Call project-documentor agent FIRST
+3. Provide full context of proposed change
+4. Get proper documentation strategy
+5. Follow project-documentor's guidance
+6. Create proper change documentation
+7. ONLY THEN proceed with implementation
+```
+
+### **Examples of MANDATORY project-documentor usage:**
+
+```
+SCENARIO: User asks to "update the agent rules in CLAUDE.md"
+CORRECT ACTION:
+1. Call project-documentor FIRST
+2. Provide context and proposed changes
+3. Get documentation strategy from project-documentor
+4. Follow project-documentor guidance for change documentation
+5. Only then implement the changes
+
+SCENARIO: Need to update change management process
+CORRECT ACTION:  
+1. Call project-documentor FIRST
+2. Discuss process improvement with project-documentor
+3. Create proper change documentation through project-documentor
+4. Update CHANGES_INDEX.md through project-documentor
+5. Only then implement changes
+
+SCENARIO: Adding new agent to the project
+CORRECT ACTION:
+1. Call project-documentor FIRST  
+2. Document agent integration strategy with project-documentor
+3. Create proper change records through project-documentor
+4. Update all affected documentation through project-documentor
+5. Only then begin using the new agent
+```
+
+### **EXPLICIT TRIGGERS: WHEN to Call project-documentor**
+
+**IMMEDIATE project-documentor REQUIRED for ANY of these scenarios:**
+
+#### **📋 Documentation Creation/Updates:**
+- Creating new project management documents
+- Updating technical specifications or requirements
+- Writing process documentation or procedures
+- Creating milestone summaries or progress reports
+- Documenting scope changes or technical decisions
+- Creating comprehensive project documentation
+
+#### **🔒 Governance Changes:**
+- ANY edit to CLAUDE.md (this file)
+- Changes to PROJECT_SCOPE_3DAY.md process
+- Updates to change management system
+- Modifications to agent usage rules
+- Changes to development workflow processes
+- Updates to quality assurance procedures
+
+#### **📊 Process Documentation:**
+- Documenting new agent integrations
+- Creating workflow documentation
+- Updating development processes
+- Documenting testing procedures
+- Creating deployment documentation
+- Updating project coordination processes
+
+#### **📈 Project Management:**
+- Milestone documentation and reporting
+- Technical decision documentation
+- Risk assessment documentation
+- Change impact analysis documentation
+- Project status reporting
+- Stakeholder communication documents
+
+### **Process Violation Prevention:**
+
+**NEVER DO THESE without project-documentor:**
+- ❌ Edit CLAUDE.md directly
+- ❌ Update agent usage rules
+- ❌ Modify change management processes  
+- ❌ Change documentation templates
+- ❌ Update project governance rules
+- ❌ Modify development processes
+- ❌ Create formal project documentation
+- ❌ Document scope or timeline changes
+
+**ALWAYS DO THESE:**
+- ✅ Call project-documentor FIRST for ANY governance change
+- ✅ Call project-documentor FIRST for ANY documentation creation
+- ✅ Create proper change documentation through project-documentor
+- ✅ Follow project-documentor's documentation strategy
+- ✅ Validate process compliance through project-documentor
+- ✅ Use project-documentor for ALL project management documentation
+
+---
+
 ## 📋 **DOCUMENTATION HIERARCHY**
 
 ### **🔒 IMMUTABLE DOCUMENTS** (Cannot change without formal approval)
@@ -127,6 +467,27 @@ PARALLEL DEVELOPMENT OPPORTUNITIES:
 - project-documentor can update documentation as development progresses
 ```
 
+#### **CODING AGENT MANDATORY WORKFLOW:**
+
+**ALL coding subagents (mcp-server-architect, storage-engineer, tools-developer, search-engineer, testing-specialist) MUST follow these mandatory documentation review requirements:**
+
+```
+BEFORE Starting ANY Coding Task:
+1. ✅ Read DEVELOPMENT_STATUS.md (existing requirement - for current context)
+2. ✅ Read TECHNICAL_ARCHITECTURE.md (focus on relevant sections for your component)
+3. ✅ Read SYSTEM_DESIGN_REQUIREMENTS.md (focus on architectural constraints)
+
+AFTER Completing ANY Coding Task:
+1. ✅ Validate implementation against architectural requirements
+2. ✅ Check component integration specifications match your implementation  
+3. ✅ Document any architectural deviations in development status updates
+4. ✅ Confirm your implementation supports clean interfaces with other agents
+```
+
+**Rationale**: This mandatory workflow prevents architectural conflicts and integration issues that could require hours of rework. The 5-10 minute documentation review saves significant development time and ensures system consistency.
+
+**Enforcement**: Any coding agent that skips these requirements risks creating integration conflicts, architectural violations, or rework cycles that impact the 3-day timeline.
+
 ---
 
 ## 🚦 **CHANGE MANAGEMENT RULES**
@@ -217,13 +578,17 @@ THEN:
 7. ✅ Use **draw.io MCP** to create system architecture diagrams and component designs
 
 ### **After Completing Each Task (MANDATORY):**
-1. ✅ **IMMEDIATELY** update `docs/project-management/DEVELOPMENT_STATUS.md`:
+1. ✅ **BEFORE updating DEVELOPMENT_STATUS.md:**
+   - **ALWAYS check actual local time using**: `date "+%Y-%m-%d %H:%M"` 
+   - **Use actual system timestamp** in "Updated" column
+   - **NEVER use estimated or future timestamps**
+2. ✅ **IMMEDIATELY** update `docs/project-management/DEVELOPMENT_STATUS.md`:
    - Change task status from ⏳ PENDING to ✅ COMPLETE
-   - Add completion timestamp
+   - Add completion timestamp (from step 1)
    - Add any notes about issues or discoveries
    - Update progress metrics
-2. ✅ Update "Current Development Context" section with what you just completed
-3. ✅ Update "Immediate Next Steps" with next task to work on
+3. ✅ Update "Current Development Context" section with what you just completed
+4. ✅ Update "Immediate Next Steps" with next task to work on
 
 ### **During Daily Development:**
 1. ✅ **EVERY 2-4 hours**: Update DEVELOPMENT_STATUS.md with current progress
@@ -487,6 +852,11 @@ USE project-documentor FOR:
 ✅ Creating milestone summaries and progress reports
 ✅ Documenting scope changes or technical decisions
 ✅ Creating comprehensive project documentation
+✅ MANDATORY: Any changes to CLAUDE.md governance rules
+✅ MANDATORY: Any changes to process documentation
+✅ MANDATORY: Any changes to agent usage guidelines
+✅ MANDATORY: Any changes to project management processes
+✅ MANDATORY: Any changes to documentation templates or standards
 
 PROVIDE project-documentor WITH:
 ✅ Current project context and status
@@ -546,6 +916,207 @@ WHEN using draw.io MCP:
 
 ---
 
+## 🎯 **SUBAGENT GOVERNANCE BRIEFING PROTOCOL**
+
+### **CRITICAL REQUIREMENT: ALL Subagent Calls Must Include Governance Briefing**
+
+**MANDATORY**: Every Claude Code call to any subagent (mcp-server-architect, storage-engineer, tools-developer, search-engineer, testing-specialist, project-coordinator, project-documentor, or any agent) MUST include comprehensive governance briefing to ensure project management protocol compliance.
+
+**NO EXCEPTIONS**: This requirement applies to ALL agent interactions without exception.
+
+---
+
+### **STANDARD SUBAGENT GOVERNANCE BRIEFING TEMPLATE**
+
+**When calling ANY subagent, Claude Code MUST provide this standard briefing:**
+
+```
+**🎯 GOVERNANCE BRIEFING FOR [AGENT_TYPE] - mydocs-mcp Project**
+
+**PROJECT CONTEXT**:
+- **Project**: mydocs-mcp Personal Document Intelligence MCP Server  
+- **Timeline**: 3-day MVP sprint (72 hours total) - NO EXTENSIONS ALLOWED
+- **Current Status**: [Current development phase, day, and specific task]
+- **Sprint Phase**: [Pre-development/Day 1/Day 2/Day 3] - [Hours remaining]
+- **Scope**: MVP ONLY - NO feature expansion beyond documented scope
+
+**🚨 MANDATORY READING** (Read these documents FIRST before proceeding):
+1. **docs/project-management/DEVELOPMENT_STATUS.md** - Current progress, immediate priorities, session context
+2. **docs/TECHNICAL_ARCHITECTURE.md** - Technical constraints, decisions, architecture requirements  
+3. **docs/SYSTEM_DESIGN_REQUIREMENTS.md** - System design requirements and performance specifications
+4. **docs/project-management/PROJECT_SCOPE_3DAY.md** - IMMUTABLE scope boundaries (IN/OUT OF SCOPE)
+5. **docs/project-management/CHANGES_INDEX.md** - Recent changes and current project modifications
+
+**📋 PROCESS COMPLIANCE REQUIREMENTS** (MANDATORY - NO EXCEPTIONS):
+1. **Follow ALL protocols in CLAUDE.md** without exception or modification
+2. **Document changes immediately** using individual change files for medium/high impact or CHANGES_INDEX.md for low impact
+3. **Update DEVELOPMENT_STATUS.md** after completing ANY task (change status from PENDING to COMPLETE)
+4. **Verify scope compliance** before implementing ANY change - check PROJECT_SCOPE_3DAY.md
+5. **NO timeline extensions** - work strictly within 72-hour constraint  
+6. **Maintain performance requirements** - sub-200ms response times for all operations
+7. **Follow MCP protocol compliance** standards without compromise
+8. **Update session handoff notes** in DEVELOPMENT_STATUS.md before completing work
+
+**🛡️ SCOPE PROTECTION** (CRITICAL - Violation will stop project):
+- **ONLY implement features** listed in IN SCOPE section of PROJECT_SCOPE_3DAY.md
+- **NEVER add OUT OF SCOPE features** without formal change request approval process
+- **NEVER extend 3-day timeline** under any circumstances
+- **Focus on MVP delivery ONLY** - no feature expansion or optimization beyond requirements
+- **Question anything** that seems to expand scope and STOP if unsure
+
+**📦 DELIVERABLE HANDOFF REQUIREMENTS** (Complete before finishing work):
+1. **Update task status** in DEVELOPMENT_STATUS.md immediately after completion (PENDING → COMPLETE)
+2. **Log significant changes** in change management system using appropriate change file or index
+3. **Ensure code/documentation standards** match project requirements and architecture decisions
+4. **Verify integration** with existing components and maintain compatibility  
+5. **Test performance requirements** - validate sub-200ms targets are met
+6. **Update immediate priorities** in DEVELOPMENT_STATUS.md for next session continuity
+7. **Document any blockers** or issues encountered for next session awareness
+8. **Verify deliverable quality** meets MVP standards and project requirements
+
+**🔍 QUALITY ASSURANCE CHECKLIST** (Verify before completion):
+- [ ] All changes align with TECHNICAL_ARCHITECTURE.md decisions
+- [ ] Performance requirements met (sub-200ms targets)  
+- [ ] MCP protocol compliance maintained
+- [ ] Documentation updated to reflect actual implementation
+- [ ] Integration testing completed for affected components
+- [ ] No scope violations introduced
+- [ ] Timeline impact assessed and documented
+- [ ] Session handoff information prepared
+
+**[AGENT_SPECIFIC_PROTOCOLS]** - See specialized requirements below for your agent type
+```
+
+---
+
+### **AGENT-SPECIFIC PROTOCOL EXTENSIONS**
+
+#### **For mcp-server-architect Agent**:
+```
+**SPECIALIZED REQUIREMENTS - MCP Server Architecture**:
+- **MCP Protocol Focus**: Ensure strict MCP protocol compliance - no protocol deviations
+- **Transport Layer**: Use stdio transport only (no HTTP+SSE as it's OUT OF SCOPE)
+- **Tool Registry**: Implement comprehensive tool registry with async execution support
+- **Server Lifecycle**: Follow MCP server lifecycle management standards  
+- **Performance**: Target sub-200ms tool response times
+- **Architecture**: Follow docs/TECHNICAL_ARCHITECTURE.md decisions exactly
+- **Integration**: Ensure clean interfaces for storage, tools, and search components
+- **Documentation**: Update technical documentation to match actual server implementation
+```
+
+#### **For storage-engineer Agent**:
+```
+**SPECIALIZED REQUIREMENTS - Database and Storage**:
+- **SQLite Focus**: Use SQLite only - no other database systems (PostgreSQL is OUT OF SCOPE)
+- **Performance Target**: Sub-200ms query response times (P95 performance requirement)
+- **Schema Design**: Follow TECHNICAL_ARCHITECTURE.md database schema specifications
+- **Async Support**: Implement async database operations with connection pooling
+- **Data Integrity**: Ensure ACID compliance and data consistency
+- **Migration System**: Implement schema versioning and migration support
+- **Query Optimization**: Focus on search index optimization for fast document retrieval
+- **Documentation**: Update database documentation with actual schema and performance metrics
+```
+
+#### **For tools-developer Agent**:
+```
+**SPECIALIZED REQUIREMENTS - MCP Tools Implementation**:
+- **Tool Interface**: Implement exactly 3 MCP tools - indexDocument, searchDocuments, getDocument
+- **Parameter Validation**: Strict input validation and error handling for all tools
+- **MCP Compliance**: Follow MCP protocol tool interface specifications exactly
+- **Performance**: Each tool must respond within sub-200ms requirement
+- **Error Handling**: Comprehensive error responses with proper MCP error format
+- **Integration**: Clean integration with storage and search engine components
+- **Documentation**: Create comprehensive API documentation for each tool
+- **Testing**: Unit testing for each tool with performance validation
+```
+
+#### **For search-engineer Agent**:
+```
+**SPECIALIZED REQUIREMENTS - Search Engine Development**:
+- **Search Type**: Keyword search ONLY - no semantic search (OUT OF SCOPE)
+- **Performance**: Sub-200ms search response time requirement
+- **Relevance**: Basic relevance scoring based on keyword matching and document metadata  
+- **Result Format**: JSON response format matching MCP tool specifications
+- **Index Optimization**: Focus on search index performance for fast document retrieval
+- **Query Processing**: Efficient query parsing and processing algorithms
+- **Integration**: Clean interface with storage layer for search index management
+- **Documentation**: Document search algorithms and performance characteristics
+```
+
+#### **For testing-specialist Agent**:
+```
+**SPECIALIZED REQUIREMENTS - Testing and Quality Assurance**:
+- **Test Coverage**: Target >95% code coverage across all components
+- **Performance Testing**: Validate sub-200ms response time requirements
+- **Integration Testing**: End-to-end MCP protocol testing with Claude Code
+- **Unit Testing**: Comprehensive unit tests for all components and tools
+- **Test Automation**: Automated test execution and reporting
+- **Quality Metrics**: Track and report quality metrics throughout development
+- **Bug Tracking**: Document and track any issues discovered during testing
+- **Documentation**: Create testing documentation and quality reports
+```
+
+---
+
+### **GOVERNANCE BRIEFING ENFORCEMENT**
+
+#### **MANDATORY COMPLIANCE VERIFICATION**:
+1. **Before Starting Work**: Agent MUST confirm reading all mandatory documents
+2. **During Work**: Agent MUST verify scope compliance for each implementation decision  
+3. **After Completing Work**: Agent MUST complete all deliverable handoff requirements
+4. **Session Handoff**: Agent MUST update DEVELOPMENT_STATUS.md with current state
+
+#### **COMPLIANCE VERIFICATION CHECKLIST** (For Claude Code):
+- [ ] **Governance briefing provided** to subagent with all required sections
+- [ ] **Agent-specific protocols** included for the specific agent type
+- [ ] **Mandatory documents** confirmed as read by subagent
+- [ ] **Scope compliance** verified during subagent work  
+- [ ] **Deliverable handoff** completed by subagent before session end
+- [ ] **Documentation updates** completed per requirements
+- [ ] **DEVELOPMENT_STATUS.md** updated with task completion and next priorities
+
+#### **ESCALATION FOR NON-COMPLIANCE**:
+```
+IF subagent fails to follow governance briefing requirements:
+1. STOP current work immediately
+2. Re-brief agent on missed requirements
+3. Verify compliance before proceeding
+4. Document compliance issue in CHANGES_INDEX.md
+5. If repeated non-compliance, escalate to human review
+```
+
+---
+
+### **SUBAGENT HANDOFF PROTOCOL SUMMARY**
+
+#### **BEFORE Calling Subagent** (Claude Code Requirements):
+1. ✅ **Prepare governance briefing** using standard template
+2. ✅ **Add agent-specific protocols** for the called agent type
+3. ✅ **Include current project status** and immediate task context
+4. ✅ **Provide all required document references** for mandatory reading
+5. ✅ **Set clear deliverable expectations** and handoff requirements
+
+#### **DURING Subagent Work** (Monitoring Requirements):
+1. ✅ **Verify document reading** compliance by subagent
+2. ✅ **Monitor scope compliance** throughout agent work
+3. ✅ **Ensure process adherence** to CLAUDE.md protocols
+4. ✅ **Track deliverable progress** against requirements
+5. ✅ **Validate quality standards** during implementation
+
+#### **AFTER Subagent Completion** (Handoff Verification):
+1. ✅ **Confirm deliverable completion** meets all requirements  
+2. ✅ **Verify DEVELOPMENT_STATUS.md updates** completed correctly
+3. ✅ **Check documentation updates** reflect actual implementation
+4. ✅ **Validate performance requirements** met (sub-200ms targets)
+5. ✅ **Ensure session continuity** with proper handoff notes
+6. ✅ **Update change management** with appropriate change documentation
+
+---
+
+**CRITICAL SUCCESS FACTOR**: This subagent governance briefing protocol is ESSENTIAL for maintaining project integrity, timeline adherence, and scope compliance throughout the mydocs-mcp 3-day development sprint. ALL subagent interactions MUST follow this protocol without exception.
+
+---
+
 ## 📞 **ESCALATION PROTOCOL**
 
 ### **When to Stop and Ask for Help:**
@@ -571,6 +1142,6 @@ WHEN using draw.io MCP:
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: September 3, 2025  
+**Document Version**: 1.1 (Added Subagent Governance Briefing Protocol)  
+**Last Updated**: September 4, 2025  
 **For**: mydocs-mcp 3-day development sprint

@@ -1,0 +1,51 @@
+Model Context Protocol (MCP) Integration Guide
+
+The mydocs-mcp server implements the Model Context Protocol to provide AI agents with intelligent access to personal document collections.
+
+Key MCP Features:
+- Tool-based architecture for extensible functionality
+- STDIO transport for local, secure communication
+- JSON-RPC 2.0 message format for reliability
+- Structured error handling and logging
+- Resource and prompt management (future features)
+
+Core MCP Tools:
+
+1. searchDocuments
+   - Keyword-based document search
+   - File type filtering (markdown, text, all)
+   - Relevance-based result ranking
+   - Content snippet extraction
+   - Performance: Sub-200ms response time
+
+2. getDocument
+   - Document retrieval by ID or path
+   - Multiple output formats (JSON, markdown, text)
+   - Metadata inclusion option
+   - Content size management
+   - Comprehensive error handling
+
+3. indexDocument
+   - New document addition to search index
+   - Automatic metadata extraction
+   - File type detection and validation
+   - Tag-based categorization
+   - Batch processing support
+
+Transport Layer:
+The server uses STDIO transport for secure, local-only communication with Claude Code and other MCP clients. This ensures that all document processing occurs locally without network dependencies.
+
+Performance Characteristics:
+- Cold start: <5 seconds
+- Tool call response: <200ms average
+- Memory usage: <256MB for typical document collections
+- Concurrent operations: 10+ simultaneous tool calls
+- Search throughput: 100+ queries per second
+
+Future Enhancements:
+- HTTP+SSE transport for remote deployment
+- Resource management for document templates
+- Prompt templates for document generation
+- Webhook support for real-time notifications
+
+The MCP protocol compliance ensures compatibility with any MCP-compatible AI agent, making mydocs-mcp a versatile solution for personal document intelligence.

@@ -1,0 +1,98 @@
+# mydocs-mcp Development Docker Compose Configuration
+# Optimized for development with hot reload and debugging capabilities
+
+version: '3.8'
+
+services:
+  mydocs-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: mydocs-mcp-dev
+    
+    # Development environment configuration
+    environment:
+      - MCP_TRANSPORT=stdio
+      - LOG_LEVEL=DEBUG
+      - DATABASE_PATH=/app/data/documents.db
+      - DOCUMENT_DIRECTORIES=/documents
+      - MAX_DOCUMENT_SIZE=10485760
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    
+    # Volume mounts for development
+    volumes:
+      # Source code hot reload
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./scripts:/app/scripts
+      
+      # Development data (not persistent across container rebuilds)
+      - ./data:/app/data
+      
+      # Test documents
+      - ./examples/sample_documents:/documents:ro
+      
+      # Optional: Mount entire project for full development
+      - .:/app/project:ro
+    
+    # Development networking
+    networks:
+      - mydocs-dev-network
+    
+    # Interactive terminal for development
+    stdin_open: true
+    tty: true
+    
+    # Health check with shorter intervals for development
+    healthcheck:
+      test: ["CMD", "/app/scripts/docker-healthcheck.sh"]
+      interval: 15s
+      timeout: 5s
+      retries: 2
+      start_period: 5s
+    
+    # Development restart policy
+    restart: "no"
+    
+    # Port mapping for potential future HTTP transport debugging
+    ports:
+      - "8000:8000"
+    
+    # Development logging (more verbose)
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+
+  # Development database viewer (optional)
+  sqlite-web:
+    image: coleifer/sqlite-web:latest
+    container_name: mydocs-mcp-db-viewer
+    command: ["sqlite-web", "/data/documents.db", "--host", "0.0.0.0", "--port", "8080"]
+    
+    volumes:
+      - ./data:/data:ro
+    
+    ports:
+      - "8080:8080"
+    
+    networks:
+      - mydocs-dev-network
+    
+    # Only start if database exists
+    depends_on:
+      - mydocs-mcp
+    
+    restart: "no"
+    
+    profiles:
+      - debug
+
+# Development network
+networks:
+  mydocs-dev-network:
+    driver: bridge
+    name: mydocs_mcp_dev_network

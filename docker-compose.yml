@@ -1,0 +1,83 @@
+# mydocs-mcp Production Docker Compose Configuration
+# Optimized for production deployment with proper resource limits
+
+version: '3.8'
+
+services:
+  mydocs-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: mydocs-mcp-prod
+    
+    # Resource limits for production
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Environment configuration
+    environment:
+      - MCP_TRANSPORT=stdio
+      - LOG_LEVEL=INFO
+      - DATABASE_PATH=/app/data/documents.db
+      - DOCUMENT_DIRECTORIES=/documents
+      - MAX_DOCUMENT_SIZE=10485760
+      - PYTHONUNBUFFERED=1
+    
+    # Volume mounts for data persistence
+    volumes:
+      # Persistent application data
+      - mydocs_data:/app/data
+      
+      # Document directories (mount your document folders here)
+      - ${DOCUMENT_PATH:-./sample_documents}:/documents:ro
+      
+      # Optional: Configuration overrides
+      - ${CONFIG_PATH:-./config}:/app/config:ro
+    
+    # Networking
+    networks:
+      - mydocs-network
+    
+    # Health check configuration
+    healthcheck:
+      test: ["CMD", "/app/scripts/docker-healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Restart policy for production
+    restart: unless-stopped
+    
+    # Security settings
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100M
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Named volumes for data persistence
+volumes:
+  mydocs_data:
+    driver: local
+    name: mydocs_mcp_data
+
+# Custom network for future multi-service deployments
+networks:
+  mydocs-network:
+    driver: bridge
+    name: mydocs_mcp_network

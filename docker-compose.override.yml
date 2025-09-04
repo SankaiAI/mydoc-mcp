@@ -1,0 +1,34 @@
+# mydocs-mcp Docker Compose Override Configuration
+# Local development overrides for docker-compose.yml
+# This file is automatically loaded by docker-compose and merged with docker-compose.yml
+
+version: '3.8'
+
+services:
+  mydocs-mcp:
+    # Override for local development
+    build:
+      target: development
+    
+    # Development environment variables
+    environment:
+      - LOG_LEVEL=DEBUG
+    
+    # Development volume mounts
+    volumes:
+      # Override data mount for local development
+      - ./data:/app/data
+      
+      # Override documents mount to local examples
+      - ./examples/sample_documents:/documents:ro
+    
+    # Enable interactive mode for development
+    stdin_open: true
+    tty: true
+    
+    # Development restart policy
+    restart: "no"
+    
+    # Expose port for debugging
+    ports:
+      - "8000:8000"
