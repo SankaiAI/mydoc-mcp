@@ -43,7 +43,21 @@ class ServerConfig:
     
     # Document processing configuration
     max_document_size: int = 10 * 1024 * 1024  # 10MB
-    supported_extensions: list[str] = field(default_factory=lambda: [".md", ".txt"])
+    supported_extensions: list[str] = field(default_factory=lambda: [
+        # Documentation files
+        ".md", ".markdown", ".mdown", ".mkd", ".mkdn", ".txt", ".text", 
+        ".readme", ".changelog", ".authors", ".contributors", ".install", ".license",
+        # Code files
+        ".py", ".js", ".css", ".html", ".htm", ".sql", 
+        ".sh", ".bat", ".cmd", ".ps1", ".dockerfile",
+        # Configuration files
+        ".json", ".xml", ".yaml", ".yml", ".cfg", ".conf", ".config", 
+        ".ini", ".properties", ".env", ".gitignore",
+        # Data files
+        ".csv", ".tsv", ".dat", ".log",
+        # Notes and project files
+        ".notes", ".todo", ".fixme"
+    ])
     
     # Search configuration
     max_search_results: int = 50

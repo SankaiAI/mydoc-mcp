@@ -243,6 +243,70 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 
 ---
 
+## 📁 **Comprehensive File Type Support (25+ Types)**
+
+### **Beyond Just Documentation - Index Your Entire Project Intelligence**
+
+mydocs-mcp supports **25+ file types**, making it truly comprehensive for project document intelligence:
+
+#### **📝 Documentation & Content**
+- **Markdown**: `.md`, `.markdown`, `.mdown`, `.mkd`, `.mkdn`
+- **Text Files**: `.txt`, `.text`, `.readme`, `.changelog`, `.license`
+- **Project Notes**: `.notes`, `.todo`, `.fixme`, `.authors`, `.contributors`
+
+#### **💻 Code & Scripts** 
+- **Programming Languages**: `.py`, `.js`, `.html`, `.htm`, `.css`, `.sql`
+- **Shell Scripts**: `.sh`, `.bat`, `.cmd`, `.ps1`
+- **Infrastructure**: `.dockerfile`, `.gitignore`
+
+#### **⚙️ Configuration & Data**
+- **Structured Data**: `.json`, `.xml`, `.yaml`, `.yml`, `.csv`, `.tsv`
+- **Configuration**: `.cfg`, `.conf`, `.config`, `.ini`, `.properties`, `.env`
+- **Logs & Data**: `.log`, `.dat`
+
+### **Why This Matters: Beyond Traditional "Document" Search**
+
+**Unlike document-only solutions**, mydocs-mcp learns from your **entire project ecosystem**:
+
+✅ **Code Comments & Documentation**: Learn patterns from your Python docstrings, JavaScript comments  
+✅ **Configuration Consistency**: Find your best practices in Docker, YAML, JSON configurations  
+✅ **Script Templates**: Discover your proven shell scripts and automation patterns  
+✅ **Data Patterns**: Learn from your CSV structures, log formats, and data organization  
+
+### **Real-World Intelligence Examples**
+
+#### **Python Development:**
+```
+User: "Create a new API endpoint"
+mydocs-mcp finds:
+- Your best Python API implementations (.py files)
+- Associated configuration patterns (.yaml, .json)
+- Documentation examples (.md files)
+- Deployment scripts (.sh, .dockerfile)
+```
+
+#### **Frontend Projects:**
+```
+User: "Set up a new component"
+mydocs-mcp discovers:
+- Successful component patterns (.js files) 
+- Styling approaches (.css files)
+- Configuration setups (.json files)
+- Documentation formats (.md files)
+```
+
+### **Competitive Advantage: Holistic Project Intelligence**
+
+| **Approach** | **File Types** | **Intelligence Level** |
+|---|---|---|
+| **Traditional Tools** | Documentation only | Surface-level file matching |
+| **GitHub MCP** | Repository structure | Code discovery & navigation |
+| **mydocs-mcp** | **25+ project file types** | **Holistic project pattern learning** |
+
+**Key Insight**: mydocs-mcp doesn't just find your documentation - it **learns from your entire development pattern ecosystem** to help you replicate successful approaches across all file types.
+
+---
+
 ## 🌟 **mydocs-mcp vs GitHub MCP: Why Both Matter**
 
 ### **"Why not just use GitHub MCP to access my historical repos?"**
@@ -411,7 +475,7 @@ DEFAULT_SEARCH_LIMIT=10                     # Default number of search results
 
 # Document processing
 MAX_DOCUMENT_SIZE=10485760                  # Max document size (10MB)
-SUPPORTED_EXTENSIONS=.md,.txt               # Comma-separated file extensions
+SUPPORTED_EXTENSIONS=.md,.txt,.py,.js,.json,.yaml,.html,.css,.sql,.sh,.dockerfile,.env,.log,.csv # Comma-separated file extensions (25+ types supported)
 ```
 
 #### **Configuration File (.env)**

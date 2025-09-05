@@ -69,7 +69,7 @@ A secure, intelligent MCP server that indexes and serves users' personal documen
 
 ### 4.1 Document Management
 - **FR-001**: Index and store user documents in a searchable format
-- **FR-002**: Support multiple document types (markdown, text, JSON, YAML)
+- **FR-002**: Support 25+ file types including documentation (.md, .txt), code (.py, .js, .html, .css, .sql), configuration (.json, .yaml, .xml, .ini, .env), shell scripts (.sh, .bat, .ps1), infrastructure (.dockerfile, .gitignore), and data files (.csv, .log)
 - **FR-003**: Maintain document metadata (creation date, project context, tags)
 - **FR-004**: Support document versioning and history tracking
 - **FR-005**: Enable document organization through tags and categories
@@ -227,7 +227,7 @@ A secure, intelligent MCP server that indexes and serves users' personal documen
 | **Cross-Project Doc Intelligence** | ❌ | ❌ | ❌ | ✅ **Unique** |
 | **Local-First Privacy** | ❌ *Network dependent* | ✅ | ✅ | ✅ **Guaranteed** |
 | **Performance (Sub-200ms)** | ❌ *API dependent* | ⚠️ *Variable* | ⚠️ *Variable* | ✅ **Guaranteed** |
-| **Document Type Support** | Code + Markdown | External docs | Generic files | Project docs |
+| **File Type Support** | Code + Markdown | External docs | Generic files | **25+ types: code, config, data, docs** |
 | **Success Pattern Recognition** | ❌ | ❌ | ❌ | ✅ **Unique** |
 | **Version Control Integration** | ✅ **Excellent** | ❌ | ❌ | ⚠️ *Future* |
 | **Multi-Repository Access** | ✅ **Excellent** | ❌ | ❌ | ⚠️ *Future* |
