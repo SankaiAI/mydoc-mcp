@@ -138,6 +138,19 @@ class ToolRegistry:
         """Check if a tool is registered."""
         return name in self._tools
     
+    def get_tool(self, name: str) -> Optional[Any]:
+        """
+        Get a tool handler by name.
+        
+        Args:
+            name: Tool name
+        
+        Returns:
+            Tool handler if found, None otherwise
+        """
+        metadata = self._tools.get(name)
+        return metadata.handler if metadata else None
+    
     def get_tool_names(self) -> List[str]:
         """Get list of registered tool names."""
         return list(self._tools.keys())

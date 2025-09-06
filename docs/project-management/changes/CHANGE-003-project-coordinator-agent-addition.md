@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-010  
-**File Name**: CHANGE-010-project-coordinator-agent-addition.md  
+**Change ID**: CHANGE-003  
+**File Name**: CHANGE-003-project-coordinator-agent-addition.md  
 **Date**: 2025-09-03  
 **Time**: Pre-development phase  
 **Type**: Process/Tooling  
@@ -37,7 +37,7 @@ Key capabilities:
 
 ### **Files Created**:
 - .claude/agents/project-coordinator.md - Comprehensive agent specification with mydocs-mcp context
-- docs/project-management/changes/CHANGE-010-project-coordinator-agent-addition.md - This change record
+- docs/project-management/changes/CHANGE-003-project-coordinator-agent-addition.md - This change record
 
 ### **Files Modified**:
 - CLAUDE.md - Added project-coordinator to available agents list and usage guidelines
@@ -221,7 +221,7 @@ None - used existing .claude/agents/ structure
 
 **Usage Instructions Applied**: 
 1. ✅ Copied template to individual change file with proper naming
-2. ✅ Assigned sequential change number (CHANGE-010)
+2. ✅ Assigned sequential change number (CHANGE-003)
 3. ✅ Filled in all applicable sections with comprehensive detail
 4. ✅ Will update main CHANGES_INDEX.md with reference to this file
 5. ✅ Documented change completion in project tracking system

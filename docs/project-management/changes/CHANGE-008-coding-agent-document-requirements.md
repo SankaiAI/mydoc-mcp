@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-014  
-**File Name**: CHANGE-014-coding-agent-document-requirements.md  
+**Change ID**: CHANGE-008  
+**File Name**: CHANGE-008-coding-agent-document-requirements.md  
 **Date**: 2025-09-04  
 **Time**: Pre-development Phase  
 **Type**: Process/Tooling + Quality Enhancement  
@@ -32,10 +32,10 @@ Project-coordinator validated this as a high-value improvement that aligns with 
 
 ### **Files Modified**:
 - CLAUDE.md - Added new "CODING AGENT MANDATORY WORKFLOW" section with BEFORE and AFTER requirements
-- docs/project-management/CHANGES_INDEX.md - Added CHANGE-014 entry and updated counters
+- docs/project-management/CHANGES_INDEX.md - Added CHANGE-008 entry and updated counters
 
 ### **Files Created**:
-- docs/project-management/changes/CHANGE-014-coding-agent-document-requirements.md - This comprehensive change record
+- docs/project-management/changes/CHANGE-008-coding-agent-document-requirements.md - This comprehensive change record
 
 ### **Files Deleted** (if applicable):
 - None

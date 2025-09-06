@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-009  
-**File Name**: CHANGE-009-change-management-restructure.md  
+**Change ID**: CHANGE-002  
+**File Name**: CHANGE-002-change-management-restructure.md  
 **Date**: 2025-09-03  
 **Time**: Pre-development phase  
 **Type**: Process/Tooling  

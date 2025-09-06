@@ -131,7 +131,7 @@ run_preflight_checks() {
     }
     
     # Check if MCP package is available
-    python3 -c "import mcp; print(f'MCP version: {mcp.__version__}')" || {
+    python3 -c "import mcp; print('MCP package: Available')" || {
         log_error "MCP package not available"
         exit 1
     }

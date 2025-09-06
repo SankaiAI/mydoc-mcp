@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-013  
-**File Name**: CHANGE-013-mandatory-user-request-validation.md  
+**Change ID**: CHANGE-007  
+**File Name**: CHANGE-007-mandatory-user-request-validation.md  
 **Date**: 2025-09-03  
 **Time**: Pre-development phase  
 **Type**: Process/Tooling + Governance  
@@ -38,7 +38,7 @@ The new process mandates that project-coordinator must evaluate every user reque
 - CLAUDE.md - Added comprehensive "MANDATORY USER REQUEST VALIDATION PROCESS" section with examples, protocols, and enforcement rules
 
 ### **Files Created**:
-- docs/project-management/changes/CHANGE-013-mandatory-user-request-validation.md - This comprehensive change record
+- docs/project-management/changes/CHANGE-007-mandatory-user-request-validation.md - This comprehensive change record
 
 ### **Files Deleted** (if applicable):
 - None

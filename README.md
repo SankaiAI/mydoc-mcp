@@ -1,4 +1,4 @@
-# mydocs-mcp
+# mydoc-mcp
 
 **Personal Document Intelligence MCP Server**
 
@@ -23,8 +23,8 @@
 #### **Option 1: Standard Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mydocs-mcp.git
-cd mydocs-mcp
+git clone https://github.com/yourusername/mydoc-mcp.git
+cd mydoc-mcp
 
 # Create virtual environment
 python -m venv venv
@@ -48,9 +48,11 @@ python -m src.main
 docker-compose up
 
 # Or build and run manually
-docker build -t mydocs-mcp .
-docker run -v ./data:/app/data -v ./documents:/app/documents mydocs-mcp
+docker build -t mydoc-mcp .
+docker run -v ./data:/app/data -v ./documents:/app/documents mydoc-mcp
 ```
+
+📚 **For detailed Docker deployment guide, see [docs/DOCKER_DEPLOYMENT.md](docs/DOCKER_DEPLOYMENT.md)**
 
 ### **Configure Claude Code**
 
@@ -62,19 +64,21 @@ Add to your Claude Code MCP settings:
     "mydocs": {
       "command": "python",
       "args": ["-m", "src.main"],
-      "cwd": "/path/to/mydocs-mcp",
+      "cwd": "/path/to/mydoc-mcp",
       "env": {
         "DOCUMENT_ROOT": "/path/to/your/documents",
-        "DATABASE_URL": "sqlite:///data/mydocs.db"
+        "DATABASE_URL": "sqlite:///data/mydoc.db"
       }
     }
   }
 }
 ```
 
+📚 **For detailed Claude Code setup guide, see [docs/CLAUDE_CODE_SETUP.md](docs/CLAUDE_CODE_SETUP.md)**
+
 ---
 
-## 🆚 **mydocs-mcp vs Traditional Claude Code File Lookup**
+## 🆚 **mydoc-mcp vs Traditional Claude Code File Lookup**
 
 ### How Claude Code Works Today (Current Capabilities)
 
@@ -95,20 +99,20 @@ Result: ✅ Finds files in current project, but limited to current session/proje
 - Read and analyze project structure
 - Understand file relationships within current project
 
-### How mydocs-mcp Works (Intelligent Approach)
+### How mydoc-mcp Works (Intelligent Approach)
 
-With mydocs-mcp, the same request becomes:
+With mydoc-mcp, the same request becomes:
 
 ```
 User: "Create API docs like the good ones I've written before"
-mydocs-mcp: *Automatically finds your top 5 API docs across ALL projects*
+mydoc-mcp: *Automatically finds your top 5 API docs across ALL projects*
 Claude: "I found your best API documentation patterns. Based on your most successful approaches..."
 Result: ✅ Instant access to proven patterns (2-3 minutes)
 ```
 
 ### **Key Differences**
 
-| **Claude Code (Current)** | **mydocs-mcp Enhanced** | **The Gap We Fill** |
+| **Claude Code (Current)** | **mydoc-mcp Enhanced** | **The Gap We Fill** |
 |---|---|---|
 | 🗂️ **Current project only** | 🌐 **Cross-project intelligence** | Access ALL your historical documents |
 | 🔄 **Session-based discovery** | 💾 **Persistent document memory** | Remembers documents across sessions |
@@ -131,10 +135,10 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 🚫 Limitation: Can't access your best specs from other projects
 ```
 
-#### mydocs-mcp Enhanced Workflow:
+#### mydoc-mcp Enhanced Workflow:
 ```
 👤 "Help me write a technical spec for the new payment system"
-🎯 mydocs-mcp automatically finds:
+🎯 mydoc-mcp automatically finds:
    - 3 of your best technical specifications
    - Similar payment/financial system docs
    - Your preferred spec structure and terminology
@@ -182,11 +186,11 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 
 *The workflows shown above represent the full vision. Current MVP provides the foundation with keyword-based intelligence that's already significantly better than single-project file lookup.*
 
-**Note about Claude Code's Future**: If Claude Code adds embedding-based search, mydocs-mcp would still provide unique value through cross-project learning, persistent memory, and document quality intelligence.
+**Note about Claude Code's Future**: If Claude Code adds embedding-based search, mydoc-mcp would still provide unique value through cross-project learning, persistent memory, and document quality intelligence.
 
 ---
 
-## 🚀 **What mydocs-mcp Enables That Claude Code Can't Do**
+## 🚀 **What mydoc-mcp Enables That Claude Code Can't Do**
 
 ### **🌐 Cross-Project Document Intelligence**
 
@@ -195,7 +199,7 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 - Starts fresh each session
 - No memory of past projects or documents
 
-**What mydocs-mcp Adds:**
+**What mydoc-mcp Adds:**
 - ✅ **Access ALL your historical documents** across every project
 - ✅ **Persistent document database** that remembers everything
 - ✅ **Cross-project pattern recognition** - find similar approaches from any past work
@@ -208,7 +212,7 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 - Returns files that match search terms
 - No understanding of document quality
 
-**What mydocs-mcp Adds:**
+**What mydoc-mcp Adds:**
 - ✅ **Relevance-based ranking** - finds your BEST examples, not just matches
 - ✅ **Content quality intelligence** - learns which documents were successful
 - ✅ **Semantic similarity** (Phase 2) - understands meaning, not just keywords  
@@ -221,7 +225,7 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 - No caching or optimization for document access
 - No specialized document handling
 
-**What mydocs-mcp Adds:**
+**What mydoc-mcp Adds:**
 - ✅ **Sub-200ms guaranteed response times** (achieved <100ms average)
 - ✅ **Intelligent caching** - search results and parsed documents
 - ✅ **Auto-indexing with file watching** - new documents indexed automatically  
@@ -235,7 +239,7 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 - Generic document processing
 - Session-limited context
 
-**What mydocs-mcp Adds:**
+**What mydoc-mcp Adds:**
 - ✅ **"Find documents like my best API specs"** - intent-based discovery
 - ✅ **Personal writing pattern recognition** - adapts to YOUR style
 - ✅ **Proactive document suggestions** - surfaces relevant examples automatically
@@ -247,7 +251,7 @@ Result: ✅ Instant access to proven patterns (2-3 minutes)
 
 ### **Beyond Just Documentation - Index Your Entire Project Intelligence**
 
-mydocs-mcp supports **25+ file types**, making it truly comprehensive for project document intelligence:
+mydoc-mcp supports **25+ file types**, making it truly comprehensive for project document intelligence:
 
 #### **📝 Documentation & Content**
 - **Markdown**: `.md`, `.markdown`, `.mdown`, `.mkd`, `.mkdn`
@@ -266,7 +270,7 @@ mydocs-mcp supports **25+ file types**, making it truly comprehensive for projec
 
 ### **Why This Matters: Beyond Traditional "Document" Search**
 
-**Unlike document-only solutions**, mydocs-mcp learns from your **entire project ecosystem**:
+**Unlike document-only solutions**, mydoc-mcp learns from your **entire project ecosystem**:
 
 ✅ **Code Comments & Documentation**: Learn patterns from your Python docstrings, JavaScript comments  
 ✅ **Configuration Consistency**: Find your best practices in Docker, YAML, JSON configurations  
@@ -278,7 +282,7 @@ mydocs-mcp supports **25+ file types**, making it truly comprehensive for projec
 #### **Python Development:**
 ```
 User: "Create a new API endpoint"
-mydocs-mcp finds:
+mydoc-mcp finds:
 - Your best Python API implementations (.py files)
 - Associated configuration patterns (.yaml, .json)
 - Documentation examples (.md files)
@@ -288,7 +292,7 @@ mydocs-mcp finds:
 #### **Frontend Projects:**
 ```
 User: "Set up a new component"
-mydocs-mcp discovers:
+mydoc-mcp discovers:
 - Successful component patterns (.js files) 
 - Styling approaches (.css files)
 - Configuration setups (.json files)
@@ -301,17 +305,17 @@ mydocs-mcp discovers:
 |---|---|---|
 | **Traditional Tools** | Documentation only | Surface-level file matching |
 | **GitHub MCP** | Repository structure | Code discovery & navigation |
-| **mydocs-mcp** | **25+ project file types** | **Holistic project pattern learning** |
+| **mydoc-mcp** | **25+ project file types** | **Holistic project pattern learning** |
 
-**Key Insight**: mydocs-mcp doesn't just find your documentation - it **learns from your entire development pattern ecosystem** to help you replicate successful approaches across all file types.
+**Key Insight**: mydoc-mcp doesn't just find your documentation - it **learns from your entire development pattern ecosystem** to help you replicate successful approaches across all file types.
 
 ---
 
-## 🌟 **mydocs-mcp vs GitHub MCP: Why Both Matter**
+## 🌟 **mydoc-mcp vs GitHub MCP: Why Both Matter**
 
 ### **"Why not just use GitHub MCP to access my historical repos?"**
 
-**Excellent question!** GitHub MCP is incredibly powerful for repository-based work, but mydocs-mcp serves a different, complementary purpose:
+**Excellent question!** GitHub MCP is incredibly powerful for repository-based work, but mydoc-mcp serves a different, complementary purpose:
 
 ### **GitHub MCP Strengths**
 - ✅ **Repository management**: Code discovery across multiple repos
@@ -319,7 +323,7 @@ mydocs-mcp discovers:
 - ✅ **Code-centric search**: Find functions, classes, implementation patterns
 - ✅ **Project structure navigation**: Repository organization and relationships
 
-### **mydocs-mcp Unique Value**
+### **mydoc-mcp Unique Value**
 - ✅ **Document quality intelligence**: Learns which documents were most successful
 - ✅ **Writing pattern recognition**: Adapts to your personal documentation style
 - ✅ **Performance-optimized**: Sub-200ms document retrieval (no API limits)
@@ -337,7 +341,7 @@ mydocs-mcp discovers:
 4. Time: 8-12 minutes + quality assessment
 ```
 
-**mydocs-mcp Approach:**
+**mydoc-mcp Approach:**
 ```
 1. Instantly surface top 3 technical specifications based on:
    - Document reuse frequency and success patterns
@@ -348,7 +352,7 @@ mydocs-mcp discovers:
 
 ### **Different Problem Domains**
 
-| **Focus Area** | **GitHub MCP** | **mydocs-mcp** | **Best Use Case** |
+| **Focus Area** | **GitHub MCP** | **mydoc-mcp** | **Best Use Case** |
 |---|---|---|---|
 | **Primary Purpose** | Repository & code discovery | Document quality intelligence | Code structure vs writing patterns |
 | **Search Target** | "What code patterns exist?" | "What documentation works best for me?" | Different questions entirely |
@@ -360,7 +364,7 @@ mydocs-mcp discovers:
 
 **Optimal Workflow:**
 1. **GitHub MCP**: Discover code patterns and project structure across repositories
-2. **mydocs-mcp**: Generate documentation templates based on your proven successful approaches
+2. **mydoc-mcp**: Generate documentation templates based on your proven successful approaches
 3. **Result**: Code structure insights + personalized documentation patterns = faster, better outcomes
 
 **Example Combined Usage:**
@@ -369,7 +373,7 @@ User: "Create API documentation for this new service"
 
 Claude Code Workflow:
 1. GitHub MCP → Find similar API implementations across your repos
-2. mydocs-mcp → Retrieve your most successful API documentation templates  
+2. mydoc-mcp → Retrieve your most successful API documentation templates  
 3. Generate → New API docs using proven code patterns + your best writing style
 ```
 
@@ -381,7 +385,7 @@ Claude Code Workflow:
 - Finding specific functions or technical implementations
 - Working within Git-based workflows
 
-**Use mydocs-mcp when:**
+**Use mydoc-mcp when:**
 - Creating documentation that matches your successful patterns
 - Learning from your personal document evolution  
 - Optimizing for document retrieval speed and quality
@@ -394,7 +398,7 @@ Claude Code Workflow:
 
 ### **Key Insight: Complementary, Not Competitive**
 
-mydocs-mcp doesn't replace GitHub MCP - it **enhances your documentation workflow** while GitHub MCP enhances your code discovery workflow. Together, they provide comprehensive historical intelligence for both your technical implementations and your documentation patterns.
+mydoc-mcp doesn't replace GitHub MCP - it **enhances your documentation workflow** while GitHub MCP enhances your code discovery workflow. Together, they provide comprehensive historical intelligence for both your technical implementations and your documentation patterns.
 
 ---
 
@@ -462,7 +466,7 @@ LOG_LEVEL=INFO                              # DEBUG, INFO, WARNING, ERROR
 LOG_FILE=logs/mydocs.log                    # Optional log file path
 
 # Database & storage
-DATABASE_URL=sqlite:///data/mydocs.db       # Database connection string
+DATABASE_URL=sqlite:///data/mydoc.db       # Database connection string
 DOCUMENT_ROOT=./data/documents              # Root directory for documents
 CACHE_DIRECTORY=./data/cache                # Cache directory for processed files
 
@@ -482,7 +486,7 @@ SUPPORTED_EXTENSIONS=.md,.txt,.py,.js,.json,.yaml,.html,.css,.sql,.sh,.dockerfil
 ```ini
 # Create a .env file in the project root
 TRANSPORT=stdio
-DATABASE_URL=sqlite:///data/mydocs.db
+DATABASE_URL=sqlite:///data/mydoc.db
 DOCUMENT_ROOT=/home/user/Documents
 LOG_LEVEL=INFO
 WATCH_ENABLED=true
@@ -508,7 +512,7 @@ WATCH_ENABLED=true
 ### **System Components**
 
 ```
-mydocs-mcp/
+mydoc-mcp/
 ├── 🚀 MCP Server Core (src/)
 │   ├── main.py                    # Entry point & MCP server bootstrap
 │   ├── server.py                  # MCP server implementation
@@ -596,8 +600,8 @@ docker-compose down
 ```yaml
 version: '3.8'
 services:
-  mydocs-mcp:
-    image: mydocs-mcp:latest
+  mydoc-mcp:
+    image: mydoc-mcp:latest
     volumes:
       - ./data:/app/data
       - ~/Documents:/app/documents:ro
@@ -642,14 +646,14 @@ python tests/test_mcp_validation.py
 - [Configuration Guide](docs/configuration.md) - All configuration options
 
 ### **Technical Documentation**
-- [API Reference](docs/api-reference.md) - Complete MCP tool documentation
-- [Architecture Overview](docs/PROJECT_STRUCTURE.md) - System design
+- [API Reference](docs/technical-documentation/Technical_Specification.md) - Complete MCP tool documentation
+- [Architecture Overview](docs/project-management/Work_Breakdown_Structure.md) - System design
 - [Database Schema](docs/database-schema.md) - Storage structure
 
 ### **Developer Resources**
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute
 - [Development Setup](docs/development.md) - Dev environment setup
-- [Change Log](docs/project-management/CHANGES.md) - Version history
+- [Change Log](docs/project-management/Change_Control_Log.md) - Version history
 
 ---
 
@@ -666,7 +670,7 @@ python --version  # Must be 3.11+
 pip list | grep mcp
 
 # Check logs
-tail -f logs/mydocs-mcp.log
+tail -f logs/mydoc-mcp.log
 ```
 
 #### **Documents not indexing**
@@ -684,7 +688,7 @@ python -m src.tools.reindex --force
 #### **Slow search performance**
 ```bash
 # Check database size
-du -h data/mydocs.db
+du -h data/mydoc.db
 
 # Optimize database
 python -m src.tools.optimize
@@ -772,8 +776,8 @@ MIT License - see [LICENSE](LICENSE) for details
 
 ### **Getting Help**
 - 📖 Check the [documentation](docs/)
-- 🐛 Report issues on [GitHub Issues](https://github.com/yourusername/mydocs-mcp/issues)
-- 💬 Join our [Discord community](https://discord.gg/mydocs-mcp)
+- 🐛 Report issues on [GitHub Issues](https://github.com/yourusername/mydoc-mcp/issues)
+- 💬 Join our [Discord community](https://discord.gg/mydoc-mcp)
 
 ### **Project Status**
 - **Current Version**: 1.0.0-beta

@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-012  
-**File Name**: CHANGE-012-process-violation-correction.md  
+**Change ID**: CHANGE-006  
+**File Name**: CHANGE-006-process-violation-correction.md  
 **Date**: 2025-09-03  
 **Time**: Pre-development phase  
 **Type**: Process/Tooling + Documentation  
@@ -38,7 +38,7 @@ This corrective change implements proper documentation processes, creates retroa
 - docs/project-management/CHANGES_INDEX.md - Added this change entry and updated dashboard
 
 ### **Files Created**:
-- docs/project-management/changes/CHANGE-012-process-violation-correction.md - This comprehensive change record
+- docs/project-management/changes/CHANGE-006-process-violation-correction.md - This comprehensive change record
 
 ### **Files Deleted** (if applicable):
 - None

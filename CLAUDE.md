@@ -50,10 +50,10 @@
 ### MANDATORY DOCUMENTS (15-30 seconds per task)
 **BEFORE starting ANY development task:**
 
-1. **DEVELOPMENT_STATUS.md** - Current context, priorities, session continuity
-2. **TECHNICAL_ARCHITECTURE.md** - Technical constraints, performance (sub-200ms)
-3. **PROJECT_STRUCTURE.md** - Code structure, file organization
-4. **SYSTEM_DESIGN_REQUIREMENTS.md** - Design constraints, quality requirements
+1. **Project_Status_Report.md** - Current context, priorities, session continuity
+2. **Technical_Design_Document.md** - Technical constraints, performance (sub-200ms)
+3. **Work_Breakdown_Structure.md** - Code structure, file organization
+4. **System_Requirements_Specification.md** - Design constraints, quality requirements
 
 ### Quick Validation Checklist
 - [ ] Current context verified
@@ -63,14 +63,14 @@
 - [ ] Scope compliance verified
 
 ### Specialized Extensions
-**Architecture Tasks**: Review SYSTEM_DESIGN_REQUIREMENTS.md in detail
+**Architecture Tasks**: Review System_Requirements_Specification.md in detail
 **Database Tasks**: Check schema specs, query performance targets
 **MCP Tasks**: Verify protocol compliance, stdio transport only
 
 ### Enforcement
 - Every task MUST begin with document review
 - No development without protocol completion
-- Update DEVELOPMENT_STATUS.md after task completion
+- Update Project_Status_Report.md after task completion
 - If protocol skipped: STOP work, complete protocol, verify alignment
 
 ## project-documentor USAGE
@@ -79,9 +79,9 @@
 
 ### GOVERNANCE DOCUMENTS (ALWAYS use project-documentor)
 - CLAUDE.md (this file)
-- PROJECT_SCOPE_3DAY.md
-- CHANGES_INDEX.md
-- DEVELOPMENT_STATUS.md
+- Project_Charter.md
+- Change_Control_Log.md
+- Project_Status_Report.md
 - docs/project-management/* files
 - docs/templates/* files
 
@@ -125,13 +125,13 @@
 ## DOCUMENTATION HIERARCHY
 
 ### IMMUTABLE DOCUMENTS (Cannot change without formal approval)
-- PROJECT_SCOPE_3DAY.md - The project contract
+- Project_Charter.md - The project contract
 - Core deliverables and timeline
 - Success criteria and metrics
 - IN SCOPE vs OUT OF SCOPE boundaries
 
 ### UPDATEABLE DOCUMENTS (Can modify with tracking)
-- PROJECT_STRUCTURE.md - Implementation details
+- Work_Breakdown_Structure.md - Implementation details
 - PersonalDocAgent_MCP_PRD.md - Technical specifications
 - README.md - Usage instructions
 - API documentation - Technical references
@@ -169,9 +169,9 @@
 **ALL coding agents MUST:**
 
 **BEFORE Starting:**
-- Read DEVELOPMENT_STATUS.md
-- Read TECHNICAL_ARCHITECTURE.md
-- Read SYSTEM_DESIGN_REQUIREMENTS.md
+- Read Project_Status_Report.md
+- Read Technical_Design_Document.md
+- Read System_Requirements_Specification.md
 
 **AFTER Completing:**
 - Validate against architectural requirements
@@ -185,13 +185,13 @@
 
 **Rule 1: Check Scope First**
 BEFORE ANY change:
-1. Read PROJECT_SCOPE_3DAY.md
+1. Read Project_Charter.md
 2. Verify alignment with IN SCOPE items
 3. If affects OUT OF SCOPE → STOP and request approval
 
 **Rule 2: Document Changes**
-- **Medium/High Impact**: Create individual change file + update CHANGES_INDEX.md
-- **Low Impact**: Log directly in CHANGES_INDEX.md
+- **Medium/High Impact**: Create individual change file + update Change_Control_Log.md
+- **Low Impact**: Log directly in Change_Control_Log.md
 
 **Rule 3: Scope Changes Need Approval**
 IF affects timeline/deliverables/success criteria:
@@ -207,7 +207,7 @@ IF affects timeline/deliverables/success criteria:
 
 **MEDIUM (Technical Approach)**
 - Examples: Database choice, library selection
-- Actions: Update PROJECT_STRUCTURE.md, log in CHANGES_INDEX.md
+- Actions: Update Work_Breakdown_Structure.md, log in Change_Control_Log.md
 
 **HIGH (Scope/Timeline)**
 - Examples: Adding features, extending deadline
@@ -215,8 +215,8 @@ IF affects timeline/deliverables/success criteria:
 
 ## DOCUMENTATION UPDATES
 
-### CRITICAL: Read DEVELOPMENT_STATUS.md First
-**EVERY session MUST start by reading DEVELOPMENT_STATUS.md**
+### CRITICAL: Read Project_Status_Report.md First
+**EVERY session MUST start by reading Project_Status_Report.md**
 - Source of truth for current progress
 - Tells you what to work on next
 - Provides complete session continuity
@@ -224,14 +224,14 @@ IF affects timeline/deliverables/success criteria:
 ### Session Workflow
 
 **Session Start:**
-1. Read DEVELOPMENT_STATUS.md
+1. Read Project_Status_Report.md
 2. Update "Current Development Context"
 3. Use project-documentor for documentation tasks
 4. Use draw.io MCP for diagrams
 
 **After Each Task (MANDATORY):**
 1. Check actual time: `date "+%Y-%m-%d %H:%M"`
-2. Update DEVELOPMENT_STATUS.md:
+2. Update Project_Status_Report.md:
    - Change status: PENDING → COMPLETE
    - Add timestamp and notes
    - Update progress metrics
@@ -239,30 +239,30 @@ IF affects timeline/deliverables/success criteria:
 4. Update "Immediate Next Steps"
 
 **Session End (CRITICAL):**
-- Update DEVELOPMENT_STATUS.md "Session Handoff Notes"
+- Update Project_Status_Report.md "Session Handoff Notes"
 - Document current state and next priority
 - Note any blockers or issues
 
 ### Document Update Categories
 
 **IMMUTABLE (Never update without approval):**
-- PROJECT_SCOPE_3DAY.md
+- Project_Charter.md
 - Core deliverables and timeline
 - IN/OUT OF SCOPE boundaries
 
 **REAL-TIME (Update constantly):**
-- DEVELOPMENT_STATUS.md (after every task)
-- CHANGES_INDEX.md (with all changes)
+- Project_Status_Report.md (after every task)
+- Change_Control_Log.md (with all changes)
 
 **REGULAR (Update as progresses):**
-- PROJECT_STRUCTURE.md
-- TECHNICAL_ARCHITECTURE.md
+- Work_Breakdown_Structure.md
+- Technical_Design_Document.md
 - API documentation
 
 ### Update Frequency
-- **Every task**: DEVELOPMENT_STATUS.md (MANDATORY)
+- **Every task**: Project_Status_Report.md (MANDATORY)
 - **4-hour blocks**: Detailed progress updates
-- **Daily milestones**: CHANGES_INDEX.md summary
+- **Daily milestones**: Change_Control_Log.md summary
 - **Session end**: Handoff notes (MANDATORY)
 
 ### Validation Checklist
@@ -331,16 +331,16 @@ PROJECT CONTEXT:
 - Scope: MVP ONLY - NO feature expansion
 
 MANDATORY READING (Read FIRST):
-1. DEVELOPMENT_STATUS.md - Progress, priorities, context
-2. TECHNICAL_ARCHITECTURE.md - Technical constraints, sub-200ms targets
-3. SYSTEM_DESIGN_REQUIREMENTS.md - Design requirements
-4. PROJECT_SCOPE_3DAY.md - IMMUTABLE scope boundaries
-5. CHANGES_INDEX.md - Recent changes
+1. Project_Status_Report.md - Progress, priorities, context
+2. Technical_Design_Document.md - Technical constraints, sub-200ms targets
+3. System_Requirements_Specification.md - Design requirements
+4. Project_Charter.md - IMMUTABLE scope boundaries
+5. Change_Control_Log.md - Recent changes
 
 COMPLIANCE REQUIREMENTS:
 - Follow ALL CLAUDE.md protocols
 - Document changes immediately
-- Update DEVELOPMENT_STATUS.md after tasks
+- Update Project_Status_Report.md after tasks
 - Verify scope compliance before changes
 - NO timeline extensions (72-hour constraint)
 - Maintain sub-200ms performance
@@ -375,7 +375,7 @@ DELIVERABLE HANDOFF:
 - [ ] Mandatory documents confirmed read
 - [ ] Scope compliance verified
 - [ ] Deliverable handoff completed
-- [ ] DEVELOPMENT_STATUS.md updated
+- [ ] Project_Status_Report.md updated
 
 ---
 
@@ -385,14 +385,14 @@ DELIVERABLE HANDOFF:
 1. **User Request** → Call project-coordinator FIRST (NO EXCEPTIONS)
 2. **Development Task** → Read mandatory documents (15-30s)
 3. **Documentation Changes** → Call project-documentor FIRST
-4. **After Each Task** → Update DEVELOPMENT_STATUS.md (MANDATORY)
+4. **After Each Task** → Update Project_Status_Report.md (MANDATORY)
 5. **Subagent Calls** → Include governance briefing (MANDATORY)
 
 ### Key Documents
-- **DEVELOPMENT_STATUS.md** - Start every session here
-- **PROJECT_SCOPE_3DAY.md** - IMMUTABLE boundaries
-- **TECHNICAL_ARCHITECTURE.md** - Technical constraints
-- **CHANGES_INDEX.md** - Track all changes
+- **Project_Status_Report.md** - Start every session here
+- **Project_Charter.md** - IMMUTABLE boundaries
+- **Technical_Design_Document.md** - Technical constraints
+- **Change_Control_Log.md** - Track all changes
 
 ### Performance Targets
 - Sub-200ms response times (ALL operations)

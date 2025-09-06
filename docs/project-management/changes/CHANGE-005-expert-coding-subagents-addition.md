@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-012  
-**File Name**: CHANGE-012-expert-coding-subagents-addition.md  
+**Change ID**: CHANGE-005  
+**File Name**: CHANGE-005-expert-coding-subagents-addition.md  
 **Date**: 2025-09-03  
 **Time**: Pre-development phase  
 **Type**: Process/Tooling  
@@ -46,7 +46,7 @@ The five expert coding subagents created:
 - .claude/agents/tools-developer.md - Expert MCP tools implementation and interface design
 - .claude/agents/search-engineer.md - Expert search algorithms and performance optimization
 - .claude/agents/testing-specialist.md - Expert testing, validation, and quality assurance
-- docs/project-management/changes/CHANGE-012-expert-coding-subagents-addition.md - This change record
+- docs/project-management/changes/CHANGE-005-expert-coding-subagents-addition.md - This change record
 
 ### **Files Modified**:
 - CLAUDE.md - Added comprehensive coding subagent integration with usage guidelines and collaboration patterns
@@ -297,7 +297,7 @@ The five expert coding subagents created:
 
 **Usage Instructions Applied**: 
 1. ✅ Copied template to individual change file with proper naming
-2. ✅ Assigned sequential change number (CHANGE-012)
+2. ✅ Assigned sequential change number (CHANGE-005)
 3. ✅ Filled in all applicable sections with comprehensive detail
 4. ✅ Will update main CHANGES_INDEX.md with reference to this file
 5. ✅ Documented change completion in project tracking system

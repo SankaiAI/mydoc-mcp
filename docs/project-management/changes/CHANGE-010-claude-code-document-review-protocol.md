@@ -1,7 +1,7 @@
 # mydocs-mcp Individual Change Record
 
-**Change ID**: CHANGE-016  
-**File Name**: CHANGE-016-claude-code-document-review-protocol.md  
+**Change ID**: CHANGE-010  
+**File Name**: CHANGE-010-claude-code-document-review-protocol.md  
 **Date**: 2025-09-04  
 **Time**: Pre-development (Day 1 preparation)  
 **Type**: Critical Process Enhancement + Governance  
@@ -35,10 +35,10 @@ The solution implements a mandatory Light Protocol (15-30 seconds per task) that
 
 ### **Files Modified**:
 - **CLAUDE.md** - Added new section "CLAUDE CODE PRE-TASK DOCUMENT REVIEW PROTOCOL" with mandatory review requirements, compliance checklist, and enforcement language
-- **docs/project-management/CHANGES_INDEX.md** - Added CHANGE-016 entry and updated dashboard statistics
+- **docs/project-management/CHANGES_INDEX.md** - Added CHANGE-010 entry and updated dashboard statistics
 
 ### **Files Created**:
-- **docs/project-management/changes/CHANGE-016-claude-code-document-review-protocol.md** - This comprehensive change record
+- **docs/project-management/changes/CHANGE-010-claude-code-document-review-protocol.md** - This comprehensive change record
 
 ### **Files Deleted**:
 None
@@ -201,7 +201,7 @@ If issues arise, remove the new protocol section from CLAUDE.md and revert to pr
 ## **References**
 
 ### **Related Changes**:
-- **CHANGE-015** - Subagent Governance Briefing Protocol (created the requirement for consistency)
+- **CHANGE-009** - Subagent Governance Briefing Protocol (created the requirement for consistency)
 - **CHANGE-014** - Coding Agent Mandatory Document Requirements (related governance improvement)
 - **CHANGE-013** - Mandatory User Request Validation Process (complementary governance measure)
 

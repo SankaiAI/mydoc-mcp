@@ -1,7 +1,7 @@
-# CHANGE-019: Expand File Type Support from 2 to 42+ Types
+# CHANGE-012: Expand File Type Support from 2 to 42+ Types
 
 ## Change Overview
-- **Change ID**: CHANGE-019
+- **Change ID**: CHANGE-012
 - **Date**: 2025-09-05
 - **Type**: FEATURE_ENHANCEMENT
 - **Impact**: HIGH

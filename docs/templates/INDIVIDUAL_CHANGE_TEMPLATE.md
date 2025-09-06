@@ -196,5 +196,10 @@
 1. Copy this template to `docs/project-management/changes/CHANGE-XXX-[brief-description].md`
 2. Replace XXX with the next sequential change number
 3. Fill in all applicable sections
-4. Update the main CHANGES.md index with a reference to this file
+4. Update the main Change_Control_Log.md index with a reference to this file
 5. Log change completion in the main project tracking system
+
+**Template Selection Guidance**:
+- **Use this CHANGE template for**: Technical implementation, development process, project execution changes
+- **Use PCR template for**: Strategic product changes, user experience modifications, feature additions
+- **See**: Product_vs_Project_Change_Guidelines.md for detailed guidance on template selection

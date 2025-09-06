@@ -37,6 +37,7 @@ from .tool_registry import ToolRegistry
 from .logging_config import setup_logging
 from .tools.registration import register_core_tools
 from .watcher import FileWatcher, create_default_watcher
+from .prompts import get_available_prompts, create_index_prompt_messages, create_search_prompt_messages, create_get_document_prompt_messages
 
 
 class MyDocsMCPServer:
@@ -244,21 +245,82 @@ class MyDocsMCPServer:
         )
     
     async def _handle_list_prompts(self, request: ListPromptsRequest) -> ListPromptsResult:
-        """Handle list_prompts requests (placeholder for future use)."""
+        """Handle list_prompts requests."""
         self.logger.debug("Handling list_prompts request")
         
-        # Currently no prompts available
-        return ListPromptsResult(prompts=[])
+        try:
+            # Get available prompts
+            prompts = get_available_prompts()
+            self.logger.debug(f"Found {len(prompts)} available prompts")
+            return ListPromptsResult(prompts=prompts)
+        except Exception as e:
+            self.logger.error(f"Error listing prompts: {e}")
+            return ListPromptsResult(prompts=[])
     
     async def _handle_get_prompt(self, request: GetPromptRequest) -> GetPromptResult:
-        """Handle get_prompt requests (placeholder for future use)."""
-        self.logger.debug(f"Handling get_prompt request: {request.params.name}")
+        """Handle get_prompt requests."""
+        prompt_name = request.params.name
+        arguments = request.params.arguments or {}
         
-        # Currently no prompts available
-        return GetPromptResult(
-            description="No prompts available",
-            messages=[]
-        )
+        self.logger.debug(f"Handling get_prompt request: {prompt_name}")
+        self.logger.debug(f"Arguments: {arguments}")
+        
+        try:
+            # Handle different prompts
+            if prompt_name == "index_document":
+                file_path = arguments.get("file_path", "")
+                messages = create_index_prompt_messages(file_path)
+                
+                # Actually execute the indexing
+                if file_path and self._tools_registered:
+                    result = await self.tool_registry.execute_tool("indexDocument", {"file_path": file_path})
+                    self.logger.info(f"Indexed document via prompt: {file_path}")
+                
+                return GetPromptResult(
+                    description=f"Index document at {file_path}",
+                    messages=messages
+                )
+                
+            elif prompt_name == "search_documents":
+                query = arguments.get("query", "")
+                limit = arguments.get("limit", 10)
+                messages = create_search_prompt_messages(query, limit)
+                
+                # Actually execute the search
+                if query and self._tools_registered:
+                    result = await self.tool_registry.execute_tool("searchDocuments", {"query": query, "limit": limit})
+                    self.logger.info(f"Searched documents via prompt: {query}")
+                
+                return GetPromptResult(
+                    description=f"Search for: {query}",
+                    messages=messages
+                )
+                
+            elif prompt_name == "get_document":
+                document_id = arguments.get("document_id", "")
+                messages = create_get_document_prompt_messages(document_id)
+                
+                # Actually execute the retrieval
+                if document_id and self._tools_registered:
+                    result = await self.tool_registry.execute_tool("getDocument", {"document_id": document_id})
+                    self.logger.info(f"Retrieved document via prompt: {document_id}")
+                
+                return GetPromptResult(
+                    description=f"Get document {document_id}",
+                    messages=messages
+                )
+            else:
+                return GetPromptResult(
+                    description=f"Unknown prompt: {prompt_name}",
+                    messages=[]
+                )
+                
+        except Exception as e:
+            self.logger.error(f"Error executing prompt {prompt_name}: {e}")
+            return GetPromptResult(
+                description=f"Error: {str(e)}",
+                messages=[]
+            )
     
     async def start_stdio_server(self) -> None:
         """Start the MCP server with STDIO transport."""
@@ -276,7 +338,11 @@ class MyDocsMCPServer:
                 await self.server.run(
                     read_stream, 
                     write_stream,
-                    InitializationOptions()
+                    InitializationOptions(
+                        server_name="mydocs-mcp",
+                        server_version="1.0.0",
+                        capabilities={}
+                    )
                 )
             
         except KeyboardInterrupt:
